@@ -1,20 +1,20 @@
-package com.koreait.spring;
+package com.korea.spring;
 
 public class EngineerCalculator {
 
-	
 	// field
 	private Calculator calculator;
 	private int a;
 	private int b;
 	
 	// constructor
+	// 생성자 빠르게 생성하는 방법
+	// alt + s + o
 	public EngineerCalculator() {
 		
 	}
 	
-	// 필드를 이용
-	// 주어진 매개변수에 값이 일치하도록 넣어 바로 사용한다.
+	// 필드(매개변수)를 활용
 	public EngineerCalculator(Calculator calculator, int a, int b) {
 		super();
 		this.calculator = calculator;
@@ -22,7 +22,7 @@ public class EngineerCalculator {
 		this.b = b;
 	}
 	
-	// method 
+	// method
 	public void add() {
 		calculator.add(a, b);
 	}
@@ -38,10 +38,14 @@ public class EngineerCalculator {
 	public void divide() {
 		calculator.divide(a, b);
 	}
+
 	
-	// getter와 setter를 활용
-	// set : field의 private 변수에 넣어놓는다.
-	// get : field에 저장되어 있는 값을 꺼내온다.
+	// getter와 setter
+	// setter: 입력 받은 데이터를 field에 있는 변수에 저장해놓음
+	// getter: 저장되어있는 변수의 데이터를 사용
+	
+	// getter와 setter 빠르게 입력하는 방법
+	// alt + s + r
 	public Calculator getCalculator() {
 		return calculator;
 	}
@@ -49,7 +53,7 @@ public class EngineerCalculator {
 	public void setCalculator(Calculator calculator) {
 		this.calculator = calculator;
 	}
-
+	
 	public int getA() {
 		return a;
 	}
@@ -66,5 +70,5 @@ public class EngineerCalculator {
 		this.b = b;
 	}
 	
-
+	
 }
