@@ -6,6 +6,8 @@ import java.util.Set;
 
 public class MapHandler {
 	
+	// Map : Key 와 Value를 한 쌍으로 저장하며, index를 활용하여 빠르게 탐색이 가능
+	
 	// field
 	// private Map<String, String> map = new HashMap<String, String>();
 	private Map<String, String> map = new HashMap();
