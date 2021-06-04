@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="bmiCalc" class="com.korea.quiz2.BMICalculator" >
+		<property name="normal" value="20" />
+		<property name="over" value="26" />
+		<property name="obesity" value="31" />
+	</bean>
+	
+
+	<bean id="person" class="com.korea.quiz2.Person" >
+		<property name="name" value="제임스" />
+		<property name="weight" value="175.0" /> 
+		<property name="height" value="64.5" />
+		<property name="bmiCalculator" ref="bmiCalc" />
+		<property name="hobbies">
+			<list>
+				<value>운동</value>
+				<value>영화</value>
+				<value>독서</value>
+			</list>
+		</property>
+	</bean>	
+
+</beans>
