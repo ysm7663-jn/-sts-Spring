@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- DI: setter injection -->
+	<bean id="engine1" class="com.korea.quiz2.Engine">
+		<property name="fuelType" value="가솔린" />
+		<property name="fuelEfficiency" value="13.5" />
+		<property name="cc" value="1995" />
+		<property name="hp" value="255" />
+	</bean>
+	
+	<!-- DI: constructor injection -->
+	<bean id="car1" class="com.korea.quiz2.Car">
+		<constructor-arg value="520d" />
+		<constructor-arg ref="engine1" />
+	</bean>
+
+</beans>
