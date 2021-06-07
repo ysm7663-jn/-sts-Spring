@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<bean id="person1" class="com.korea.spring.Person">
+		<property name="name" value="에밀리" />
+		<property name="hobbies">
+			<list>
+				<value>영화</value>
+				<value>드라마</value>
+				<value>넷플릭스</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 
+		Appcontext.java에서 생성한 빈을 XML로 가져와서 처리할 수 있다
+		
+		방법
+		1. Namespaces 탭으로 가서  context를 추가한다.
+		2. <context:annotation-config /> 태그를 작성한다.
+		3. <bean class="Bean을 만드는 클래스명"/> 태그를 작성한다.
+	 -->
+	 <context:annotation-config />
+	 <bean class="com.korea.spring.Appcontext" />
+
+</beans>
