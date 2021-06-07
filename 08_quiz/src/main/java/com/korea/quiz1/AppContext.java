@@ -15,7 +15,7 @@ public class AppContext {
 	
 	@Bean
 	public Gun gun() {
-		return new Gun("k1", 10);
+		return new Gun("k1", 15);
 	}
 	
 }
