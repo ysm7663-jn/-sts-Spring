@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<context:annotation-config/>
+	<bean class="com.korea.quiz1.AppContext" />
+
+	<bean id="soldier1" class="com.korea.quiz1.Soldier">
+		<property name="name" value="김상사" />
+		<property name="armyInfo">
+			<map>
+				<entry key="armyName" value="1사단" />
+				<entry key="armyLocation" value="파주" />
+			</map>
+		</property>
+		<property name="gun" ref="gun" />
+	</bean>
+
+</beans>
