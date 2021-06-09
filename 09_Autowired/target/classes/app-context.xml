@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	<context:annotation-config />
+	<!-- @를 사용하기 위해선 Namespaces-context를 설정해줘야 한다. -->
+	
+	<!-- speaker : 정상 생성된다.(int volume은 자동으로 0으로 초기화 되기 때문입니다.) -->
+	<bean id="speaker" class="com.korea.spring.Speaker" />
+	
+	<!-- tv : 비정상적인 Bean이 생성된다.(Speaker speaker는 자동으로 null로 초기화 되는데 그러면 speaker.volumeUp(volume)에서 NullPointerException 발생해요. -->
+	<!-- 정상적인 주입이 되려면 <property name="speaker" ref="speaker" />가 필요하지만 지금 없다. -->
+	<bean id="tv" class="com.korea.spring.TV" />		
+	
+	<!--
+		현재 speaker Bean은 생성되었지만,
+		TV 클래스의 property인(field) Speaker speaker는 생성되지 않았으므로
+		TV 클래스에서 직접 Speaker speaker를 생성해 보려고 합니다. (TV 클래스로 가세요.)
+	-->
+	
+</beans>
