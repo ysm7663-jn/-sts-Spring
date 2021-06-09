@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 /*
-	 * app-context.xml에 저으이된 Bean을
+	 * app-context.xml에 저장된 Bean을
 	 * AppContext.java로 가져올 수 있어요
 	 * 
 	 * 방법
