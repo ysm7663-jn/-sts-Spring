@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -154,6 +155,37 @@ public class BoardController {
 		model.addAttribute("date", new Date(System.currentTimeMillis()));
 		
 		return "view08";
+	}
+	
+	// 5. @ModelAttribute
+	// 파라미터를 받아서 Model에 저장해 줍니다.
+	@RequestMapping("v09")
+	public String goView09(	@ModelAttribute("name") String name,
+							@ModelAttribute("age") int age) {
+		
+		return "view09";
+	}
+	
+	@RequestMapping("v10")
+	public String goView10(	@ModelAttribute("personDto") PersonDto personDto ) {
+		
+		return "view10";
+	}
+	
+	// 연습
+	// http://localhost:9090/mvc06/board/v11?title=공지사항&hit=1
+	// view11.jsp
+	// 제목: 공지사항
+	// 조회수: 1
+	// 작성일: 2021-01-11
+	@RequestMapping("v11")
+	public String goView11(	@ModelAttribute("title") String title,
+						   	@ModelAttribute("hit") int hit,
+						   	Model model) {
+		
+		model.addAttribute("date", new Date(System.currentTimeMillis()));
+		
+		return "view11";
 		
 	}
 	
