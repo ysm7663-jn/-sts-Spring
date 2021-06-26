@@ -115,7 +115,30 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency> 
+		
+		<!-- taglib -->
+		<!-- EL사용 -->
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-spec</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-impl</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<!-- lombok 사용 -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.12</version>
+		    <scope>provided</scope>
+		</dependency>
+		       
 	</dependencies>
     <build>
         <plugins>

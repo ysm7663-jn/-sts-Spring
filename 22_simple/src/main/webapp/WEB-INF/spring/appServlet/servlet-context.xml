@@ -23,6 +23,15 @@
 	
 	<context:component-scan base-package="com.korea.simple2" />
 	
+	<!-- DI를 위한 Bean을 생성해 둔다 -->
+	<!-- 스프링은 모든 Bean을 기본적으로 scope="singleton"로 생성한다 (하나만 만들어 둔다) -->
 	
+	<!-- SimpleDao의 생성을 Spring에게 맡긴다. -->
+	<!-- SimpleDao가 singleton이라면 굳이 맡길 필요가 없다 -->
+	<beans:bean id="simpleDao" class="com.korea.simple2.dao.SimpleDao"></beans:bean>
+	
+	<!-- 모든 command를 Bean으로 생성해 둔다. -->
+	<beans:bean id="simpleListCommand" class="com.korea.simple2.command.SimpleListCommand"></beans:bean>
+	<beans:bean id="simpleInsertCommand" class="com.korea.simple2.command.SimpleInsertCommand"></beans:bean>
 	
 </beans:beans>
