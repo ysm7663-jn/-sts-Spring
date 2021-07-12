@@ -33,5 +33,8 @@
 	<!-- 모든 command를 Bean으로 생성해 둔다. -->
 	<beans:bean id="simpleListCommand" class="com.korea.simple2.command.SimpleListCommand"></beans:bean>
 	<beans:bean id="simpleInsertCommand" class="com.korea.simple2.command.SimpleInsertCommand"></beans:bean>
+	<beans:bean id="simpleViewCommand" class="com.korea.simple2.command.SimpleViewCommand"></beans:bean>
+	<beans:bean id="simpleDeleteCommand" class="com.korea.simple2.command.SimpleDeleteCommand"></beans:bean>
+	<beans:bean id="simpleUpdateCommand" class="com.korea.simple2.command.SimpleUpdateCommand"></beans:bean>
 	
 </beans:beans>
