@@ -114,5 +114,36 @@ public class SimpleDao {
 		}
 		return simpleDto;
 	}
-
+	
+	/***** 4. update *****/
+	public void simpleUpdate(SimpleDto simpleDto) {
+		try {
+			con = dataSource.getConnection();
+			sql = "UPDATE SIMPLE SET TITLE=?, CONTENT=? WHERE NO = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, simpleDto.getTitle());
+			ps.setString(2, simpleDto.getContent());
+			ps.setInt(3, simpleDto.getNo());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, ps, null);
+		}
+	}
+	
+	/***** 5. delete *****/
+	public void simpleDelete(int no) {
+		try {
+			con = dataSource.getConnection();
+			sql = "DELETE FROM SIMPLE WHERE NO = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con,ps, null);
+		}
+	}
 }

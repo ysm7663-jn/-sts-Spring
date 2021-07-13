@@ -3,8 +3,10 @@ package com.korea.simple3.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.korea.simple3.command.SimpleDeleteCommand;
 import com.korea.simple3.command.SimpleInsertCommand;
 import com.korea.simple3.command.SimpleListCommand;
+import com.korea.simple3.command.SimpleUpdateCommand;
 import com.korea.simple3.command.SimpleViewCommand;
 import com.korea.simple3.dao.SimpleDao;
 
@@ -40,5 +42,15 @@ public class AppContext {
 	@Bean
 	public SimpleViewCommand viewCommand() {
 		return new SimpleViewCommand();
+	}
+	
+	@Bean
+	public SimpleUpdateCommand updateCommand() {
+		return new SimpleUpdateCommand();
+	}
+	
+	@Bean
+	public SimpleDeleteCommand deleteCommand() {
+		return new SimpleDeleteCommand();
 	}
 }
