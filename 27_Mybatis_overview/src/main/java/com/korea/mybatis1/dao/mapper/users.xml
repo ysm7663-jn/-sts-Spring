@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
+
+<!--
+	UsersDao와 users.xml을 연결하기 위해서
+	mapper namespace를 UsersDao로 설정해 둡니다.
+-->
+<mapper namespace="com.korea.mybatis1.dao.UserDao">
+	
+	<select id="userList" resultType="com.korea.mybatis1.dto.UserDto">
+		SELECT *
+		  FROM USERS
+	</select>
+	
+	<insert id="userInsert" parameterType="com.korea.mybatis1.dto.UserDto">
+		INSERT INTO 
+		 USERS (NO, NAME, PHONE)
+		VALUES (USERS_SEQ.NEXTVAL, #{name}, #{phone})
+	</insert>
+	
+	<select id="userView" parameterType="int" resultType="com.korea.mybatis1.dto.UserDto">
+		SELECT NO, NAME, PHONE
+		  FROM USERS
+		 WHERE NO = #{no}
+	</select>
+	
+	<update id="userUpdate" parameterType="com.korea.mybatis1.dto.UserDto">
+		UPDATE USERS
+		   SET NAME = #{name},
+		       PHONE = #{phone}
+		 WHERE NO = #{no}
+	</update>
+	
+	<delete id="userDelete" parameterType="int">
+		DELETE FROM USERS
+		 WHERE NO = #{no}
+	</delete>
+	
+</mapper>
