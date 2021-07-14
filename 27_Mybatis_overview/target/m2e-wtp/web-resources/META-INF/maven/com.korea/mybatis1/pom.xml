@@ -13,6 +13,17 @@
 		<org.aspectj-version>1.9.2</org.aspectj-version>
 		<org.slf4j-version>1.7.25</org.slf4j-version>
 	</properties>
+	
+	<!-- ojdbc6.jar 설정 1 -->
+	<!-- ojdbc6.jar가 저장된 repository 설정 -->
+	<repositories>
+		<repository>
+			<id>oracle</id>
+			<name>ORACLE JDBC Repository</name>
+			<url>http://maven.jahia.org/maven2</url>
+		</repository>
+	</repositories>
+	
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
@@ -118,6 +129,26 @@
 		</dependency>  
 		      
 		<!-- ojdbc6.jar 톰캣에 배치했으므로 dependency를 추가하지 않습니다. -->
+		<!-- ojdbc6.jar 설정 2 -->
+		<!-- ojdbc6.jar 디펜던시 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>12.1.0.2</version>
+		</dependency>
+		
+		<!-- taglib -->
+		<!-- EL사용 -->
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-spec</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-impl</artifactId>
+			<version>1.2.5</version>
+		</dependency>
 		
 		<!-- Mybatis dependency 3개 : mybatis + mybatis-spring + spring-jdbc -->
 		
