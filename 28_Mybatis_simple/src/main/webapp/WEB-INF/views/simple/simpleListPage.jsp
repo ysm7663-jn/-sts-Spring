@@ -33,12 +33,18 @@
 					<tr>
 						<td>${simpleDto.no}</td>					
 						<td>${simpleDto.writer}</td>					
-						<td><a href="">${simpleDto.title}</a></td>					
+						<td><a href="simpleViewPage.do">${simpleDto.title}</a></td>					
 						<td>${simpleDto.regDate}</td>					
 					</tr>
 				</c:forEach>
 			</c:if>
 		</tbody>
+		
+		<tfoot>
+			<tr>
+				<td colspan="4"><input type="button" value="새 글 작성하기" onclick="location.href='simpleInsertPage.do'" /></td>
+			</tr>
+		</tfoot>
 	</table>
 
 </body>
