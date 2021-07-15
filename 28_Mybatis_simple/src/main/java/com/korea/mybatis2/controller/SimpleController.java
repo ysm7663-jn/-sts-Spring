@@ -6,13 +6,18 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.korea.mybatis2.command.SimpleCommand;
+import com.korea.mybatis2.command.SimpleDeleteCommand;
 import com.korea.mybatis2.command.SimpleInsertCommand;
 import com.korea.mybatis2.command.SimpleListCommand;
+import com.korea.mybatis2.command.SimpleUpdateCommand;
+import com.korea.mybatis2.command.SimpleViewCommand;
+import com.korea.mybatis2.dto.SimpleDto;
 
 @Controller
 public class SimpleController {
@@ -46,15 +51,45 @@ public class SimpleController {
 		return "simple/simpleInsertPage";
 	}
 	
-	@RequestMapping(value="simpleInsert.do")
+	@RequestMapping(value="simpleInsert.do", method=RequestMethod.POST)
 	public String simpleInsert(HttpServletRequest request, Model model, RedirectAttributes rttr) {
 		model.addAttribute("request", request);
 		model.addAttribute("rttr", rttr);
-		
 		command = new SimpleInsertCommand();
 		command.execute(sqlSession, model);
-		
 		return "redirect:simpleListPage.do";
 	}
+	
+	@RequestMapping(value="simpleViewPage.do", method=RequestMethod.GET)
+	public String simpleViewPage(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		command = new SimpleViewCommand();
+		command.execute(sqlSession, model);
+		return "simple/simpleViewPage";
+	}
+	
+	@RequestMapping(value="simpleUpdatePage.do", method=RequestMethod.POST)
+	public String simpleUpdatePage(@ModelAttribute("simpleDto") SimpleDto simpleDto) {
+		return "simple/simpleUpdatePage";
+	}
+	
+	@RequestMapping(value="simpleUpdate.do", method=RequestMethod.POST)
+	public String simpleUpdate(HttpServletRequest request, RedirectAttributes rttr, Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("rttr",rttr);
+		command = new SimpleUpdateCommand();
+		command.execute(sqlSession, model);
+		return "redirect:simpleViewPage.do?no=" + request.getParameter("no");
+	}
+	
+	@RequestMapping(value="simpleDelete.do", method=RequestMethod.POST)
+	public String simpleDelete(HttpServletRequest request, RedirectAttributes rttr, Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("rttr", rttr);
+		command = new SimpleDeleteCommand();
+		command.execute(sqlSession, model);
+		return "redirect:simpleListPage.do";
+	}
+
 	
 }

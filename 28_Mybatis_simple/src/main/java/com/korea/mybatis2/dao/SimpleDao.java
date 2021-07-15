@@ -10,5 +10,11 @@ public interface SimpleDao {
 	public List<SimpleDto> simpleList();
 	
 	public int simpleInsert(String writer, String title, String content);
+	
+	public SimpleDto simpleView(int no);
+	
+	public int simpleUpdate(String title, String content, int no);
+	
+	public int simpleDelete(int no);
 
 }
